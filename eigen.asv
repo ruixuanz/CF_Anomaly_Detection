@@ -102,12 +102,9 @@ for fig_num  = 1:p
     R = Result_plot(:,:,fig_num);
     R(R<=1.0001) = NaN;
     h = imagesc(sph{fig_num}, R);
-    
-    set(sph{fig_num}, 'xtick', 1:n, 'xticklabel', ["-15" " " " " "-9" " " " " "-3" " " " " "3" " " " " "9" " " " " "15"], ...
-    'ytick', 1:m, 'yticklabel', ["15" " " " " "9" " " " " "3" " " " " "-3" " " " " "-9" " " " " "-15"])
     set(h,'alphadata',~isnan(R));
-    title(['$A$ = ',num2str(A_vector(fig_num)), ' m/s'], 'interpreter','latex');
-
+    set(h, 'xtick', 1:n, 'xticklabel', ["-15" "" "" "-9" "" "" "B" "C" "D" "E"], ...
+    'ytick', 1:m, 'yticklabel', ["W" "X" "Y" "Z"])
     caxis(sph{fig_num},[minColorLimit,maxColorLimit]);
 end
 
@@ -115,10 +112,9 @@ h = axes(fig,'visible','off');
 h.Title.Visible = 'on';
 h.XLabel.Visible = 'on';
 h.YLabel.Visible = 'on';
-xlabel(h,['$C$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
-ylabel(h,['$B$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
+ylabel(h,'yaxis','FontWeight','bold');
+xlabel(h,'xaxis','FontWeight','bold');
 title(h,'title');
-
 c = colorbar(h,'Position',[0.93 0.168 0.022 0.7]);  % attach colorbar to h
 colormap(c,'jet')
 caxis(h,[minColorLimit,maxColorLimit]);
