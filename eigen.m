@@ -117,7 +117,7 @@ h.XLabel.Visible = 'on';
 h.YLabel.Visible = 'on';
 xlabel(h,['$C$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
 ylabel(h,['$B$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
-title(h,'title');
+title(h,'Sensitivity analysis of noise terms', 'fontsize', 10, 'Position', [0.5, 1.05, 0]);
 
 c = colorbar(h,'Position',[0.93 0.168 0.022 0.7]);  % attach colorbar to h
 colormap(c,'jet')
