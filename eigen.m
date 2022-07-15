@@ -106,7 +106,7 @@ for fig_num  = 1:p
     set(sph{fig_num}, 'xtick', 1:n, 'xticklabel', ["-15" " " " " "-9" " " " " "-3" " " " " "3" " " " " "9" " " " " "15"], ...
     'ytick', 1:m, 'yticklabel', ["15" " " " " "9" " " " " "3" " " " " "-3" " " " " "-9" " " " " "-15"])
     set(h,'alphadata',~isnan(R));
-    title(['$A$ = ',num2str(A_vector(fig_num)), ' m/s'], 'interpreter','latex');
+    title(['$\tilde{A}$ = ',num2str(A_vector(fig_num)), ' m/s'], 'interpreter','latex');
 
     caxis(sph{fig_num},[minColorLimit,maxColorLimit]);
 end
@@ -115,14 +115,14 @@ h = axes(fig,'visible','off');
 h.Title.Visible = 'on';
 h.XLabel.Visible = 'on';
 h.YLabel.Visible = 'on';
-xlabel(h,['$C$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
-ylabel(h,['$B$', ' m/s'],'FontWeight','bold', 'interpreter','latex');
-title(h,'Sensitivity analysis of noise terms', 'fontsize', 10, 'Position', [0.5, 1.05, 0]);
+xlabel(h,['$\tilde{C}$', ' m/s'],'FontWeight','bold', 'interpreter','latex','Position', [0.5,-0.2, 0]);
+ylabel(h,['$\tilde{B}$', ' m'],'FontWeight','bold', 'interpreter','latex');
+title(h,'The largest eigenvalue $\lambda$ of transfer matrix $\tilde{P}_n$','interpreter','latex', 'fontsize', 12, 'Position', [0.5, 1.2, 0]);
 
 c = colorbar(h,'Position',[0.93 0.168 0.022 0.7]);  % attach colorbar to h
 colormap(c,'jet')
 caxis(h,[minColorLimit,maxColorLimit]);
-
+axis equal
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Define the functions to compute the intermediate terms

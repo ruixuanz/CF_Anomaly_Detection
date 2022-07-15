@@ -54,13 +54,14 @@
 
 
 
-plot(linspace(0,1,N_1), result);
-xlabel('$\tilde{p}$','FontWeight','bold', 'interpreter','latex');
+plot(linspace(0,1,N_1), result,'LineWidth',4);
+xlabel('$\tilde{p}$','FontWeight','bold', 'interpreter','latex', 'fontsize', 15);
 % xlabel(h,'$p$','FontWeight','bold', 'interpreter','latex');
-ylabel('$\sup |\lambda_k|$','FontWeight','bold', 'interpreter','latex');
-title('The largest magnititude of eigenvalues', 'fontsize', 10);
+ylabel('$\sup |\lambda_k|$','FontWeight','bold', 'interpreter','latex', 'fontsize', 15);
+title('The largest magnititude of all eigenvalues', 'fontsize', 12);
 grid on
 grid minor
+xline(0.86, '--r',{'$\tilde{p}^* = 0.86$'}, 'interpreter','latex', 'fontsize', 15, 'LabelOrientation', 'horizontal','LabelVerticalAlignment', 'middle','LineWidth',4,'FontWeight','bold')
 ylim([0,max(result)+1])
 
 
