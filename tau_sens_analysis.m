@@ -1,4 +1,4 @@
-%
+
 % clear all
 % clc
 % 
@@ -71,6 +71,8 @@ minColorLimit = 1;                   % determine colorbar limits from data
 sorted_result = sort(Result_plot(:));
 maxColorLimit = sorted_result(round(length(sorted_result)*0.95));
 
+title_list = ["Originally stable" "Originally unstable"];
+
 fig = figure(1);
 for fig_num  = 1:p
     sph{fig_num} = subplot(1,2,fig_num,'Parent',fig);
@@ -82,7 +84,7 @@ for fig_num  = 1:p
     'ytick', 1:m, 'yticklabel', ["3" " " " " " " " " "2.5" " " " " " " " " "2" " " " " " " " " "1.5" " " " " " " " " "1" " " " " " " " " "0.5" " " " " " " " " "0"])
     set(h,'alphadata',~isnan(R));
     
-    title('hahahaha', 'interpreter','latex');
+    title(title_list(p), 'interpreter','latex');
 
     caxis(sph{fig_num},[minColorLimit,maxColorLimit]);
 end
@@ -91,8 +93,8 @@ h = axes(fig,'visible','off');
 h.Title.Visible = 'on';
 h.XLabel.Visible = 'on';
 h.YLabel.Visible = 'on';
-xlabel(h,['$\tilde{C}$', ' m/s'],'FontWeight','bold', 'interpreter','latex','Position', [0.5,-0.2, 0]);
-ylabel(h,['$\tilde{B}$', ' m'],'FontWeight','bold', 'interpreter','latex');
+xlabel(h,['$\tau_1$', ' /s'],'FontWeight','bold', 'interpreter','latex');
+ylabel(h,['$\tau_2$', ' /s'],'FontWeight','bold', 'interpreter','latex', 'Position', [-0.8, 0.5, 0]);
 title(h,'The largest eigenvalue $\lambda$ of transfer matrix $\tilde{P}_n$','interpreter','latex', 'fontsize', 12, 'Position', [0.5, 1.2, 0]);
 
 c = colorbar(h,'Position',[0.93 0.168 0.022 0.7]);  % attach colorbar to h
